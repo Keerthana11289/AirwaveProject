@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20201021 13:21:55.973" generator="Robot 3.1.2 (Python 2.7.12 on win32)">
+<suite source="C:\Users\Keerthina\git\Gitdemo\GitTestProj\GitTest\Login.robot" id="s1" name="Login">
+<test id="s1-t1" name="Login To Chrome">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://www.google.com</arg>
+<arg>gc</arg>
+</arguments>
+<msg timestamp="20201021 13:21:59.210" level="INFO">Opening browser 'gc' to base url 'http://www.google.com'.</msg>
+<status status="PASS" endtime="20201021 13:22:32.277" starttime="20201021 13:21:59.210"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>https://github.com/</arg>
+</arguments>
+<msg timestamp="20201021 13:22:32.278" level="INFO">Opening url 'https://github.com/'</msg>
+<status status="PASS" endtime="20201021 13:22:37.441" starttime="20201021 13:22:32.278"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Browser Launch Successful!</arg>
+<arg>console=True</arg>
+</arguments>
+<msg timestamp="20201021 13:22:37.443" level="INFO">Browser Launch Successful!</msg>
+<status status="PASS" endtime="20201021 13:22:37.443" starttime="20201021 13:22:37.442"></status>
+</kw>
+<status status="PASS" endtime="20201021 13:22:37.444" critical="yes" starttime="20201021 13:21:59.181"></status>
+</test>
+<status status="PASS" endtime="20201021 13:22:37.492" starttime="20201021 13:21:55.979"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Login" pass="1">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
