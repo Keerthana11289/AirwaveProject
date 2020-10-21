@@ -1,0 +1,72 @@
+########## Regression - Pre upgrade ##################
+#..\TestCases\Sanity Testcases\ValidateLoginpage.txt
+#..\TestCases\Sanity Testcases\DeviceSetup.robot
+#..\TestCases\Sanity Testcases\GroupsFeatureTests.txt
+#..\TestCases\Sanity Testcases\Reports.robot
+#..\TestCases\Sanity Testcases\performance_cases.robot
+#..\TestCases\Sanity Testcases\AMPSetupTC.robot
+#..\TestCases\Sanity Testcases\RapidsTC.robot
+#..\TestCases\Sanity Testcases\VisualRFTests.txt
+#..\TestCases\Sanity Testcases\database_cases.robot
+#..\TestCases\Sanity Testcases\AlertsTests.robot
+#..\TestCases\Sanity Testcases\ClientMonitoringTests.robot
+
+############ Regression - Post upgrade ##################
+#..\TestCases\Sanity Testcases\PostValidationTC.robot
+
+########### Regression - Cleanup #######################
+#..\TestCases\Sanity Testcases\CleanupTC.robot
+
+
+######### Clients module #############
+
+#..\TestCases\Functional_TestCases\Reports_FT.robot
+#..\TestCases\Functional_TestCases\Home_FT.robot
+#..\TestCases\Functional_TestCases\Alerts_FT.robot
+#..\TestCases\Functional_TestCases\Clients_FT.robot
+#..\TestCases\Functional_TestCases\Devices_FT.robot
+
+#..\TestCases\Functional_TestCases\CleanUpFunctionalcases\Cleanup_FT.robot
+
+
+######### AOS module #############
+
+#..\TestCases\AOSmodule_TC\APdeviceFeature2.0TC.robot
+#..\TestCases\AOSmodule_TC\APdeviceFeature3.0TC.robot
+#..\TestCases\AOSmodule_TC\APdeviceFeature4.0TC.robot
+
+
+############ AMPCLI module #############
+
+..\TestCases\AMPCLI_TC\Ampcli_TC.robot
+
+############# VRF Module ##############
+
+#..\TestCases\VRF_FTTestcases\VRF_Testcases.robot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

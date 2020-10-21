@@ -1,0 +1,188 @@
+*** Settings ***
+Documentation     Page/feature library for Login
+...    
+#Suite Setup       Login And Verify
+#Suite Teardown    LogoutAW
+Library           SeleniumLibrary
+Library           String
+Resource          ../../Keywords/HomePage.robot
+
+Resource          ../../Keywords/Login/LoginFeature.robot
+Resource          ../../Utilities/Data_Provider.robot
+Resource          ../../Keywords/Sanity Testcases/ValidateLoginKeywords.robot
+#Resource          ../../Keywords/Device/DeviceFeature.robot
+Resource          ../../Keywords/Device/GroupsFeatureKeywords.robot
+
+
+
+*** Test Cases ***    
+
+Creating Groups in Airwave
+   [Documentation]  Here Getting the test data from 'Groups' sheet - "Groups" Test case column name.
+   ...     
+   [Tags]  Case 7
+  #  [Setup]  Login And Verify
+   Groups Data Setup  Groups 
+  # Navigate To Home Page   
+   Create a New Group in Airwave  ${GroupsName}
+   
+Create Folders in Airwave
+   [Documentation]  Create Folders and Sub Folders in Airwave
+   [Tags]  Case 6
+   Folder Data Setup  Groups
+  #  Navigate To Home Page
+   Create a New Folder  ${FoldersName} 
+
+     
+   
+Create Sub Folders in Airwave
+   [Documentation]  Create Folders and Sub Folders in Airwave
+   [Tags]  Case 6    
+   Sub Folder Data Setup  Groups
+  # Navigate To Home Page
+   Create a Sub Folder  ${FoldersName}  ${FoldersName1}  
+   
+   
+
+Compare Groups with similar & non-similar fields
+    [Documentation]  Compare Groups with similar & non-similar fields
+    [Tags]  Case 8
+    Groups Data Setup1  Groups
+   # Navigate To Home Page
+    Navigate To Group Page
+    Create a New Group with Status Polling  ${GroupsName1}  ${StatusPolling}
+    Compare 2 Groups  ${GroupsName1}  ${Pollingtime}  ${Groupname2} 
+    
+
+
+*** Comments ***
+Check for Discover of devices in newly groups and Folders
+    [Documentation]  Check for discovery of devices in newly groups
+    [Tags]  Case 9
+    Discover Data Setup  Groups
+    Navigate To Home Page
+    Add a New Device  ${DeviceName}  ${DeviceGroup}  ${DeviceFolder}  ${device_Status}   
+    
+Check the Audit Configuration status
+    [Documentation]  Check the Audit Configuration Status
+    [Tags]  Case 12
+    Navigate To Group Page
+    Get Device Details  Groups
+    Check configuration  ${deviceIPAddress} 
+    
+
+
+    
+#Check fro Add deployed devices into floor plan
+ #   [Documentation]  Add deployed devices into floor plan
+  #  Add the Deployed devices into the Floor Plan
+  
+
+    
+
+    
+
+    
+
+    
+#Check for add deployed devices into floor plan  
+   #   [Documentation]  Add deployed devices into floor plan 
+    
+    
+   
+*** Keywords ***
+
+ 
+   
+Discover Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider  ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${DeviceNameList} =  Data_Provider.GetDataProviderColumnValue  Data_Devicename
+  ${DeviceName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceNameList}  1
+  Set Suite Variable  ${DeviceName}  
+  ${DeviceGroupList} =  Data_Provider.GetDataProviderColumnValue  Data_DeviceGroup
+  ${DeviceGroup} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceGroupList}  1
+  Set Suite Variable  ${DeviceGroup}    
+  ${DeviceFolderList} =  Data_Provider.GetDataProviderColumnValue  Data_DeviceFolder
+  ${DeviceFolder} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceFolderList}  1
+  Set Suite Variable  ${DeviceFolder}
+  ${device_StatusList} =  Data_Provider.GetDataProviderColumnValue  Data_Status
+  ${device_Status} =  Data_Provider.DataProviderSplitterForMultipleValues  ${device_StatusList}  1
+  Set Suite Variable  ${device_Status}
+  
+   
+   
+Groups Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${GroupNameList} =  Data_Provider.GetDataProviderColumnValue  Data_Groupname
+  ${GroupsName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList}  1
+  Set Suite Variable  ${GroupsName}
+  
+Groups Data Setup1
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${GroupNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_GroupsName1
+  ${GroupsName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList1}  1
+  Set Suite Variable  ${GroupsName1}
+  ${PollingList} =  Data_Provider.GetDataProviderColumnValue  Data_StatusPolling
+  ${Pollingtime} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PollingList}  1
+  Set Suite Variable  ${Pollingtime}
+  ${GroupNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_Groupname2
+  ${Groupname2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList1}  1
+  Set Suite Variable  ${Groupname2}
+
+Folder Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${FolderNameList} =  Data_Provider.GetDataProviderColumnValue  Data_FoldersName
+  ${FoldersName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${FolderNameList}  1
+  Set Suite Variable  ${FoldersName} 
+  
+
+  
+Sub Folder Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${FolderNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_FoldersName1
+  ${FoldersName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${FolderNameList1}  1
+  Set Suite Variable  ${FoldersName1} 
+  
+  
+     
+
+*** Variables ***
+${SheetName}  Groups
+${GroupsName}
+${FoldersName}
+${FoldersName1}
+${GroupsName1}
+${StatusPolling}
+${Pollingtime}
+${Groupname2}
+${TriggerList}
+${SeverityValue}
+${InputValue}
+${DeviceName}
+${DeviceGroup}
+${DeviceFolder}
+${device_Status}
+
+
+
+

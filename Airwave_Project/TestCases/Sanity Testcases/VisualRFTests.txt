@@ -1,0 +1,255 @@
+*** Settings ***
+Documentation     Page/feature library for Login
+...    
+#Suite Setup       Login And Verify
+#Suite Teardown    LogoutAW
+Library           SeleniumLibrary
+Library           String
+Resource          ../../Keywords/HomePage.robot
+
+Resource          ../../Keywords/Login/LoginFeature.robot
+Resource          ../../Utilities/Data_Provider.robot
+Resource          ../../Keywords/Sanity Testcases/ValidateLoginKeywords.robot
+Resource          ../../Keywords/Device/DeviceFeature.robot
+
+
+
+
+*** Test Cases ***
+Check for Enable VisualRF
+    [Documentation]  Check for Enable of VisualRF
+    [Tags]  Case 28
+    VisualRF Data Setup  VisualRF
+    Navigate To Home Page
+    Navigate To Visual RF Page
+    Navigate To Visual RF Setup Page1
+    Navigate To Visual RF Floor Plan Page1
+  
+
+
+Check for Creation of Camps and Building and Floor
+    [Documentation]  Check for Creation of Campus,Building and Floor
+    [Tags]  Case 29,30
+   # Login Data Setup  TestLoginNegative
+    Navigate To Home Page
+    Navigate To Visual RF Page
+    VRF Data Setup  VisualRF   
+    sleep  20s
+    Check for Creation of Campus  ${CampusName}  
+    Check for Creation of Buidling  ${CampusName}  ${BuildingAddress}  ${Latitude}  ${Longitude}
+    Check for Creation of New Floor  ${CampusName}
+    
+Check for Presence of AP Overlays
+    [Documentation]  Check for Presence of AP overlays
+    [Tags]  Case 32
+    Sleep  15s
+    Check for AP Overlays Present 
+    Check for the elements present in AP Overlays 
+    
+Add deployed devices into floor plan
+    [Documentation]   Make sure that all the devcies are retained in the floor plans
+    [Tags]  case31
+    VRF Data Setup  VisualRF
+    Navigate To Visual RF Page
+    Navigate To Visual RF Floor Plan Page
+    Add deployed devices  ${CampusName}
+    Log  Deployed Device added in ${CampusName}  console=True
+
+
+    
+   
+*** Keywords ***
+Login Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider  ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${UserNameList} =  Data_Provider.GetDataProviderColumnValue  Data_Username
+  ${UserName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${UserNameList}  1
+  Set Suite Variable  ${UserName1}
+  ${UserName2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${UserNameList}  2
+  Set Suite Variable  ${UserName2}
+  ${PasswordList} =  Data_Provider.GetDataProviderColumnValue  Data_Password
+  ${Password1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PasswordList}  1
+  Set Suite Variable  ${Password1}    
+  ${Password2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PasswordList}  2
+  Set Suite Variable  ${Password2}
+   # Login To AMP page  ${UserName}  ${Password}
+   
+VRF Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider  ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${CampusNameList} =  Data_Provider.GetDataProviderColumnValue  Data_CampusName
+  ${CampusName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${CampusNameList}  1
+  Set Suite Variable  ${CampusName}
+  ${BuildingAddressList} =  Data_Provider.GetDataProviderColumnValue  Data_BuildingAddress
+  ${BuildingAddress} =  Data_Provider.DataProviderSplitterForMultipleValues  ${BuildingAddressList}  1
+  Set Suite Variable  ${BuildingAddress}
+  ${LatitudeList} =  Data_Provider.GetDataProviderColumnValue  Data_Latitude
+  ${Latitude} =  Data_Provider.DataProviderSplitterForMultipleValues   ${LatitudeList}  1
+  Set Suite Variable   ${Latitude}
+  ${LongitudeList} =  Data_Provider.GetDataProviderColumnValue  Data_Longitude
+  ${Longitude} =  Data_Provider.DataProviderSplitterForMultipleValues   ${LongitudeList}  1
+  Set Suite Variable   ${Longitude}
+     
+ 
+   
+Discover Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider  ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${DeviceNameList} =  Data_Provider.GetDataProviderColumnValue  Data_Devicename
+  ${DeviceName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceNameList}  1
+  Set Suite Variable  ${DeviceName}  
+  ${DeviceGroupList} =  Data_Provider.GetDataProviderColumnValue  Data_DeviceGroup
+  ${DeviceGroup} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceGroupList}  1
+  Set Suite Variable  ${DeviceGroup}    
+  ${DeviceFolderList} =  Data_Provider.GetDataProviderColumnValue  Data_DeviceFolder
+  ${DeviceFolder} =  Data_Provider.DataProviderSplitterForMultipleValues  ${DeviceFolderList}  1
+  Set Suite Variable  ${DeviceFolder}
+   
+   
+Groups Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${GroupNameList} =  Data_Provider.GetDataProviderColumnValue  Data_GroupsName
+  ${GroupsName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList}  1
+  Set Suite Variable  ${GroupsName}
+  
+Groups Data Setup1
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${GroupNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_GroupsName1
+  ${GroupsName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList1}  1
+  Set Suite Variable  ${GroupsName1}
+  ${PollingList} =  Data_Provider.GetDataProviderColumnValue  Data_StatusPolling
+  ${Pollingtime} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PollingList}  1
+  Set Suite Variable  ${Pollingtime}
+  ${GroupNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_GroupsName2
+  ${Groupname2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${GroupNameList1}  1
+  Set Suite Variable  ${Groupname2}
+  
+Alerts Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${TriggerTypeList} =  Data_Provider.GetDataProviderColumnValue  Data_TriggerType
+  ${TriggerList} =  Data_Provider.DataProviderSplitterForMultipleValues  ${TriggerTypeList}  1
+  Set Suite Variable  ${TriggerList}
+  ${SeverityValueList} =  Data_Provider.GetDataProviderColumnValue  Data_SeverityValue
+  ${SeverityValue} =  Data_Provider.DataProviderSplitterForMultipleValues  ${SeverityValueList}  1
+  Set Suite Variable  ${SeverityValue}
+  ${ValueList} =  Data_Provider.GetDataProviderColumnValue  Data_InputValue
+  ${InputValue} =  Data_Provider.DataProviderSplitterForMultipleValues  ${ValueList}  1
+  Set Suite Variable  ${InputValue}
+  
+  
+    
+
+
+Folder Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${FolderNameList} =  Data_Provider.GetDataProviderColumnValue  Data_FoldersName
+  ${FoldersName} =  Data_Provider.DataProviderSplitterForMultipleValues  ${FolderNameList}  1
+  Set Suite Variable  ${FoldersName} 
+  
+VisualRF Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${VisualRFList} =  Data_Provider.GetDataProviderColumnValue  Data_VisaulRFDefault
+  ${VisualRF} =  Data_Provider.DataProviderSplitterForMultipleValues  ${VisualRFList}  1
+  Set Suite Variable  ${FoldersName} 
+  
+Sub Folder Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${FolderNameList1} =  Data_Provider.GetDataProviderColumnValue  Data_FoldersName1
+  ${FoldersName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${FolderNameList1}  1
+  Set Suite Variable  ${FoldersName1} 
+  
+
+
+  
+  
+     
+#### abhi code  ####
+Get network details
+    [Arguments]    ${TestcaseName}
+    
+     ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+     Set Suite Variable  ${This_DataProvider}
+     Set Suite Variable  ${SheetName}
+  #  ${SheetName}  Set variable  ${SheetName1}
+   # ${This_DataProvider} =  Data_Provider.DataProvider    ${TestcaseName}
+   # Set Suite Variable  ${This_DataProvider}
+    Log  ${This_DataProvider}
+    ${NetworknameList} =  Data_Provider.GetDataProviderColumnValue  Data_Networkname
+    ${Networkname} =  Data_Provider.DataProviderSplitterForMultipleValues  ${NetworknameList}  1
+    Set Suite Variable  ${Networkname}
+    ${IPList} =  Data_Provider.GetDataProviderColumnValue  Data_IP
+    ${IP} =  Data_Provider.DataProviderSplitterForMultipleValues  ${IPList}  1
+    Set Suite Variable  ${IP}
+    ${MaskList} =  Data_Provider.GetDataProviderColumnValue  Data_Mask
+    ${Mask} =  Data_Provider.DataProviderSplitterForMultipleValues  ${MaskList}  1
+    Set Suite Variable  ${Mask}
+    ${TypeList} =  Data_Provider.GetDataProviderColumnValue  Data_Type
+    ${Type} =  Data_Provider.DataProviderSplitterForMultipleValues  ${TypeList}  1
+    Set Suite Variable  ${Type}
+    ${CommunitystringList} =  Data_Provider.GetDataProviderColumnValue  Data_Communitystring
+    ${Communitystring} =  Data_Provider.DataProviderSplitterForMultipleValues  ${CommunitystringList}  1
+    Set Suite Variable  ${Communitystring}
+    
+*** Variables ***
+${SheetName}  VisualRF
+${UserName1}
+${Password1}
+${UserName2}
+${Password2}
+${RAPIDSExportThresholdType}
+${GroupsName}
+${FoldersName}
+${FoldersName1}
+${CampusName}
+${BuildingAddress}
+${Latitude}
+${Longitude}
+${GroupsName1}
+${StatusPolling}
+${Pollingtime}
+${Groupname2}
+${TriggerList}
+${SeverityValue}
+${InputValue}
+${Networkname}
+${Networkname1}
+${IP}
+${Mask}
+${Type}
+${Communitystring}
+
+
+

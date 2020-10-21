@@ -1,0 +1,31 @@
+#host = "https://10.2.35.94"
+host = "https://10.21.42.206"
+#host = "https://10.21.42.229"
+#host = "https://poppy.corp.airwave.com"
+#host = "https://hp-ent-scale.corp.airwave.com"
+#host = "https://hp-pro-scale.corp.airwave.com"
+#aw10_ui_username = "admin"
+#aw10_ui_password = "dau+htqwej944cvD"
+#aw10_ui_username = "admin"
+#aw10_ui_password = "admin"
+aw10_ui_username = "admin"
+aw10_ui_password = "Aruba@123Aruba@123"
+#aw10_cli_supportuser = "awsupport"
+#aw10_cli_supportpassword = "t+oSjXiX3S0Wn12s"
+ExcelLocation = "C:\Users\Keerthina\eclipse-workspace\Airwave_jun21\TestData\AirwaveTestData.xls"
+
+browser = "gc"
+#browser = "ff"
+#browser = "edge"
+
+#Device Information
+deviceType = "Aruba Device"
+deviceName = "Aruba Controller"
+deviceIPAddress = "10.22.157.50"
+deviceCommunityString = "airwave"
+deviceTelnetSSHUsername = "admin"
+deviceTelnetSSHPassword = "airwave"
+deviceGroup = "AUT_Group01"
+deviceFolder = "FolderTest01"
+
+

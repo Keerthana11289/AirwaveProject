@@ -1,0 +1,20 @@
+*** Variables ***
+### Reports ###
+${Loc_Add_Report}  //*[@name='definitions_go_to_add']
+${Loc_reporttitle}  //*[@name="title"]
+${Loc_reportType}  //select[@id='type']
+${Loc_RunReport}  //*[@value="Run Now"]
+${Loc_SearchGenReport}  //*[@name="reports_search_title"]
+${Loc_ReportStarttime}  //*[contains(text(),'Report Start:')]/parent::*//*[@type="text"]
+${Loc_ReportStoptime}  //*[contains(text(),'Report End:')]/parent::*//*[@type="text"]
+${Loc_ExportToXML}  //a[contains(.,'XML (XHTML) export')]
+${Loc_ExportToCSV}  //*[contains(text(),'CSV export')]
+${Loc_ExportToPDF}  //*[contains(text(),'PDF export')]
+${Loc_PrintReport}  //a[contains(.,'Print report')]
+${Loc_EmailReport}  //a[contains(.,'Email')]
+${Loc_RecEmail}  //*[@name="email_address"]
+${Loc_SendEmail}  //*[@name="email_sender"]
+${Loc_EmailTypeDropdown}  //*[@name="email_format"]
+${Loc_EmailButton}  //*[@value="Email this report"]
+${Loc_EmailSuccessful}  //*[@class="icofirst icon_confirmed ok"]
+

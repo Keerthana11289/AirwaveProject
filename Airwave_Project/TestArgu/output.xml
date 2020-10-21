@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200909 22:56:27.584" generator="Robot 3.1.2 (Python 2.7.12 on win32)">
+<suite source="C:\Users\Keerthina\eclipse-workspace\Airwave_jun21\TestCases\AMPCLI_TC\Ampcli_TC.robot" id="s1" name="Ampcli TC">
+<test id="s1-t1" name="Test">
+<kw name="Login And Verify" library="LoginFeature">
+<doc>This can be used as a standalone keyword inside TS.Setup for example</doc>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.5s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:56:43.314" starttime="20200909 22:56:43.314"></status>
+</kw>
+<kw name="OpenBrowser" library="Browser">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<arg>options=add_argument("--ignore-certificate-errors")</arg>
+</arguments>
+<msg timestamp="20200909 22:56:43.316" level="INFO">Opening browser 'gc' to base url 'http://www.google.com'.</msg>
+<status status="PASS" endtime="20200909 22:57:07.764" starttime="20200909 22:56:43.315"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20200909 22:57:10.477" starttime="20200909 22:57:07.765"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:10.477" starttime="20200909 22:56:43.315"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<arguments>
+<arg>${host}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:10.478" level="INFO">Opening url 'https://10.21.42.206'</msg>
+<status status="PASS" endtime="20200909 22:57:22.712" starttime="20200909 22:57:10.477"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${login_username_id}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:26.556" starttime="20200909 22:57:22.713"></status>
+</kw>
+<kw name="Login.Enter Username" library="LoginFeature">
+<arguments>
+<arg>${aw10_ui_username}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${login_username_id}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:27.606" starttime="20200909 22:57:26.562"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${login_username_id}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:27.607" level="INFO">Typing text 'admin' into text field 'login-username-id'.</msg>
+<status status="PASS" endtime="20200909 22:57:29.518" starttime="20200909 22:57:27.606"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:29.519" starttime="20200909 22:57:26.558"></status>
+</kw>
+<kw name="Login.Enter Password" library="LoginFeature">
+<arguments>
+<arg>${aw10_ui_password}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${login_password_id}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:30.590" starttime="20200909 22:57:29.521"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${login_password_id}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:30.592" level="INFO">Typing text 'Aruba@123Aruba@123' into text field 'login-password-id'.</msg>
+<status status="PASS" endtime="20200909 22:57:32.438" starttime="20200909 22:57:30.591"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:32.438" starttime="20200909 22:57:29.519"></status>
+</kw>
+<kw name="Login.Click Submit Button" library="LoginFeature">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${login_button_id}</arg>
+<arg>10s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:33.474" starttime="20200909 22:57:32.439"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${login_button_id}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:33.476" level="INFO">Clicking element 'login-button'.</msg>
+<status status="PASS" endtime="20200909 22:57:34.557" starttime="20200909 22:57:33.475"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:34.558" starttime="20200909 22:57:32.439"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20200909 22:57:39.563" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20200909 22:57:39.563" starttime="20200909 22:57:34.561"></status>
+</kw>
+<kw name="Login.Verify Successful Login" library="LoginFeature">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${logout_link_id}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:40.626" starttime="20200909 22:57:39.566"></status>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>leftnav</arg>
+<arg>message="Could not find the AMP Menu link. FAILING TEST"</arg>
+</arguments>
+<msg timestamp="20200909 22:57:41.679" level="INFO">Element 'leftnav' is displayed.</msg>
+<status status="PASS" endtime="20200909 22:57:41.679" starttime="20200909 22:57:40.626"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>!!!Login Successfull!!!</arg>
+<arg>INFO</arg>
+</arguments>
+<msg timestamp="20200909 22:57:41.681" level="INFO">!!!Login Successfull!!!</msg>
+<status status="PASS" endtime="20200909 22:57:41.681" starttime="20200909 22:57:41.680"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:41.682" starttime="20200909 22:57:39.564"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:41.682" starttime="20200909 22:56:43.313"></status>
+</kw>
+<kw name="DOMreadyByWaitTime" library="CommonFunctions">
+<arguments>
+<arg>10</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${Seconds}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:51.701" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20200909 22:57:51.701" starttime="20200909 22:57:41.700"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:51.702" starttime="20200909 22:57:41.698"></status>
+</kw>
+<kw name="Get User Names">
+<assign>
+<var>@{BeforeSortList}</var>
+</assign>
+<kw name="Navigate To AMP Setup Page" library="HomePage">
+<doc>Navigating to the AMP Setup page by clicking on the AMP Setup link.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${AMPSetupLink_css}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:52.774" starttime="20200909 22:57:51.706"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200909 22:57:55.776" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20200909 22:57:55.776" starttime="20200909 22:57:52.775"></status>
+</kw>
+<kw name="Click" library="CommonFunctions">
+<arguments>
+<arg>${AMPSetupLink_css}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:56.833" starttime="20200909 22:57:55.780"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:57:57.921" starttime="20200909 22:57:56.834"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<msg timestamp="20200909 22:57:57.923" level="INFO">Clicking element 'css=a.amp_setup.ng-binding'.</msg>
+<status status="PASS" endtime="20200909 22:57:59.101" starttime="20200909 22:57:57.922"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:57:59.102" starttime="20200909 22:57:55.777"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${loader}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:01.069" starttime="20200909 22:57:59.103"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:01.070" starttime="20200909 22:57:51.705"></status>
+</kw>
+<kw name="Navigate To AMP Setup Users Page" library="HomePage">
+<doc>Navigating to the AMP Setup - Users page by clicking on the list sublink under AMP Setup link.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${AMPSetup_Users_css}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:02.149" starttime="20200909 22:58:01.072"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200909 22:58:05.151" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:05.151" starttime="20200909 22:58:02.150"></status>
+</kw>
+<kw name="Click" library="CommonFunctions">
+<arguments>
+<arg>${AMPSetup_Users_css}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:06.224" starttime="20200909 22:58:05.155"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:07.274" starttime="20200909 22:58:06.224"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:07.276" level="INFO">Clicking element 'css=a[ng-class='users']'.</msg>
+<status status="PASS" endtime="20200909 22:58:08.412" starttime="20200909 22:58:07.275"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:08.413" starttime="20200909 22:58:05.152"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${loader}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:10.191" starttime="20200909 22:58:08.415"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:10.191" starttime="20200909 22:58:01.070"></status>
+</kw>
+<kw name="DOMreadyByWaitTime" library="CommonFunctions">
+<arguments>
+<arg>10</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${Seconds}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:20.195" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:20.195" starttime="20200909 22:58:10.194"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:20.195" starttime="20200909 22:58:10.192"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{List}</var>
+</assign>
+<msg timestamp="20200909 22:58:20.196" level="INFO">@{List} = [ ]</msg>
+<status status="PASS" endtime="20200909 22:58:20.197" starttime="20200909 22:58:20.196"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>//*[@class="edit_link pencil"]/parent::*/following-sibling::td[1]</arg>
+</arguments>
+<assign>
+<var>@{ele}</var>
+</assign>
+<msg timestamp="20200909 22:58:20.717" level="INFO">@{ele} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="529c8633328985d3dfeac252348d0c21", element="f0a9a9a2-ad07-4ba9-92dc-66f1d4197a79")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" endtime="20200909 22:58:20.717" starttime="20200909 22:58:20.197"></status>
+</kw>
+<kw type="for" name="${i} IN [ @{ele} ]">
+<kw type="foritem" name="${i} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;529c8633328985d3dfeac252348d0c21&quot;, element=&quot;f0a9a9a2-ad07-4ba9-92dc-66f1d4197a79&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200909 22:58:21.246" level="INFO">${name} = admin</msg>
+<status status="PASS" endtime="20200909 22:58:21.247" starttime="20200909 22:58:20.718"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${List}</arg>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:21.250" starttime="20200909 22:58:21.247"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:21.250" starttime="20200909 22:58:20.717"></status>
+</kw>
+<kw type="foritem" name="${i} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;529c8633328985d3dfeac252348d0c21&quot;, element=&quot;23889e8b-e8be-4396-b86f-a76bf4b3acf2&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200909 22:58:21.784" level="INFO">${name} = 2530_admin</msg>
+<status status="PASS" endtime="20200909 22:58:21.784" starttime="20200909 22:58:21.252"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${List}</arg>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:21.785" starttime="20200909 22:58:21.784"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:21.785" starttime="20200909 22:58:21.251"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:21.785" starttime="20200909 22:58:20.717"></status>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>@{List}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:21.786" level="INFO">admin</msg>
+<msg timestamp="20200909 22:58:21.786" level="INFO">2530_admin</msg>
+<status status="PASS" endtime="20200909 22:58:21.786" starttime="20200909 22:58:21.785"></status>
+</kw>
+<msg timestamp="20200909 22:58:21.786" level="INFO">@{BeforeSortList} = [ admin | 2530_admin ]</msg>
+<status status="PASS" endtime="20200909 22:58:21.786" starttime="20200909 22:57:51.704"></status>
+</kw>
+<kw name="Click" library="CommonFunctions">
+<arguments>
+<arg>//*[@class="username"]/*</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:22.844" starttime="20200909 22:58:21.789"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:23.897" starttime="20200909 22:58:22.844"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:23.898" level="INFO">Clicking element '//*[@class="username"]/*'.</msg>
+<status status="PASS" endtime="20200909 22:58:25.060" starttime="20200909 22:58:23.897"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:25.061" starttime="20200909 22:58:21.787"></status>
+</kw>
+<kw name="DOMreadyByWaitTime" library="CommonFunctions">
+<arguments>
+<arg>5</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${Seconds}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:30.065" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:30.065" starttime="20200909 22:58:25.064"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:30.066" starttime="20200909 22:58:25.063"></status>
+</kw>
+<kw name="Get User Names">
+<assign>
+<var>@{AfterSortList}</var>
+</assign>
+<kw name="Navigate To AMP Setup Page" library="HomePage">
+<doc>Navigating to the AMP Setup page by clicking on the AMP Setup link.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${AMPSetupLink_css}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:31.151" starttime="20200909 22:58:30.070"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200909 22:58:34.153" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:34.153" starttime="20200909 22:58:31.152"></status>
+</kw>
+<kw name="Click" library="CommonFunctions">
+<arguments>
+<arg>${AMPSetupLink_css}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:35.187" starttime="20200909 22:58:34.156"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:36.249" starttime="20200909 22:58:35.188"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:36.251" level="INFO">Clicking element 'css=a.amp_setup.ng-binding'.</msg>
+<status status="PASS" endtime="20200909 22:58:37.393" starttime="20200909 22:58:36.250"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:37.394" starttime="20200909 22:58:34.154"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${loader}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:39.218" starttime="20200909 22:58:37.396"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:39.219" starttime="20200909 22:58:30.069"></status>
+</kw>
+<kw name="Navigate To AMP Setup Users Page" library="HomePage">
+<doc>Navigating to the AMP Setup - Users page by clicking on the list sublink under AMP Setup link.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${AMPSetup_Users_css}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:40.275" starttime="20200909 22:58:39.221"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20200909 22:58:43.277" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:43.277" starttime="20200909 22:58:40.276"></status>
+</kw>
+<kw name="Click" library="CommonFunctions">
+<arguments>
+<arg>${AMPSetup_Users_css}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${Locator}</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:44.334" starttime="20200909 22:58:43.279"></status>
+</kw>
+<kw name="Set Focus To Element" library="SeleniumLibrary">
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:45.384" starttime="20200909 22:58:44.335"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${Locator}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:45.386" level="INFO">Clicking element 'css=a[ng-class='users']'.</msg>
+<status status="PASS" endtime="20200909 22:58:46.525" starttime="20200909 22:58:45.385"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:46.526" starttime="20200909 22:58:43.277"></status>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${loader}</arg>
+<arg>30s</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:47.067" starttime="20200909 22:58:46.528"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:47.067" starttime="20200909 22:58:39.219"></status>
+</kw>
+<kw name="DOMreadyByWaitTime" library="CommonFunctions">
+<arguments>
+<arg>10</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${Seconds}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:57.069" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20200909 22:58:57.069" starttime="20200909 22:58:47.069"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:57.070" starttime="20200909 22:58:47.068"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{List}</var>
+</assign>
+<msg timestamp="20200909 22:58:57.072" level="INFO">@{List} = [ ]</msg>
+<status status="PASS" endtime="20200909 22:58:57.072" starttime="20200909 22:58:57.071"></status>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<arguments>
+<arg>//*[@class="edit_link pencil"]/parent::*/following-sibling::td[1]</arg>
+</arguments>
+<assign>
+<var>@{ele}</var>
+</assign>
+<msg timestamp="20200909 22:58:57.599" level="INFO">@{ele} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="529c8633328985d3dfeac252348d0c21", element="1cf1ce47-7f58-4861-82ad-7559f6beb24b")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement (ses...</msg>
+<status status="PASS" endtime="20200909 22:58:57.599" starttime="20200909 22:58:57.073"></status>
+</kw>
+<kw type="for" name="${i} IN [ @{ele} ]">
+<kw type="foritem" name="${i} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;529c8633328985d3dfeac252348d0c21&quot;, element=&quot;1cf1ce47-7f58-4861-82ad-7559f6beb24b&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200909 22:58:58.306" level="INFO">${name} = 2530_admin</msg>
+<status status="PASS" endtime="20200909 22:58:58.306" starttime="20200909 22:58:57.601"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${List}</arg>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:58.307" starttime="20200909 22:58:58.306"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:58.307" starttime="20200909 22:58:57.600"></status>
+</kw>
+<kw type="foritem" name="${i} = &lt;selenium.webdriver.remote.webelement.WebElement (session=&quot;529c8633328985d3dfeac252348d0c21&quot;, element=&quot;e3e50899-fd42-420c-8a8e-dc7d23c79a6c&quot;)&gt;">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${i}</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20200909 22:58:58.829" level="INFO">${name} = admin</msg>
+<status status="PASS" endtime="20200909 22:58:58.829" starttime="20200909 22:58:58.308"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${List}</arg>
+<arg>${name}</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:58.830" starttime="20200909 22:58:58.829"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:58.830" starttime="20200909 22:58:58.307"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:58.830" starttime="20200909 22:58:57.600"></status>
+</kw>
+<kw name="Log Many" library="BuiltIn">
+<doc>Logs the given messages as separate entries using the INFO level.</doc>
+<arguments>
+<arg>@{List}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:58.831" level="INFO">2530_admin</msg>
+<msg timestamp="20200909 22:58:58.831" level="INFO">admin</msg>
+<status status="PASS" endtime="20200909 22:58:58.831" starttime="20200909 22:58:58.830"></status>
+</kw>
+<msg timestamp="20200909 22:58:58.831" level="INFO">@{AfterSortList} = [ 2530_admin | admin ]</msg>
+<status status="PASS" endtime="20200909 22:58:58.831" starttime="20200909 22:58:30.068"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Lists Should be equal</arg>
+<arg>${BeforeSortList}</arg>
+<arg>${AfterSortList}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Lists Should Be Equal" library="Collections">
+<doc>Fails if given lists are unequal.</doc>
+<arguments>
+<arg>${BeforeSortList}</arg>
+<arg>${AfterSortList}</arg>
+</arguments>
+<msg timestamp="20200909 22:58:59.582" level="FAIL">Lists are different:
+Index 0: admin != 2530_admin
+Index 1: 2530_admin != admin</msg>
+<status status="FAIL" endtime="20200909 22:58:59.583" starttime="20200909 22:58:59.569"></status>
+</kw>
+<msg timestamp="20200909 22:58:59.584" level="INFO">${status} = False</msg>
+<status status="PASS" endtime="20200909 22:58:59.584" starttime="20200909 22:58:59.562"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>"${status}"=="False"</arg>
+</arguments>
+<status status="PASS" endtime="20200909 22:58:59.597" starttime="20200909 22:58:59.596"></status>
+</kw>
+<status status="PASS" endtime="20200909 22:58:59.598" critical="yes" starttime="20200909 22:56:43.311"></status>
+</test>
+<status status="PASS" endtime="20200909 22:59:00.325" starttime="20200909 22:56:27.635"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Ampcli TC" pass="1">Ampcli TC</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

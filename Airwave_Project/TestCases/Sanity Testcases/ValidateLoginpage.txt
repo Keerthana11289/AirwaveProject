@@ -1,0 +1,61 @@
+*** Settings ***
+Documentation     Page/feature library for Login
+...    
+#Suite Setup       Login And Verify
+#Suite Teardown    LogoutAW
+Library           SeleniumLibrary
+Library           String
+Resource          ../../Keywords/HomePage.robot
+
+Resource          ../../Keywords/Login/LoginFeature.robot
+Resource          ../../Utilities/Data_Provider.robot
+Resource          ../../Keywords/Sanity Testcases/ValidateLoginKeywords.robot
+Resource          ../../Keywords/Device/DeviceFeature.robot
+
+
+
+*** Test Cases ***
+TestLoginNegative
+    [Documentation]  Here Getting the test data from 'LoginValidate' sheet - "TestLoginNegative" Test case column name. 
+    [Tags]  smokeTest1
+    Login Data Setup  TestLoginNegative  
+    Login To AMP page  ${UserName1}  ${Password1} 
+    Login To AMP page successful for Airwave  ${UserName2}  ${Password2} 
+    
+
+
+
+    
+   
+*** Keywords ***
+Login Data Setup
+  [Arguments]    ${TestcaseName}
+  ${This_DataProvider} =  Data_Provider.DataProvider  ${TestcaseName}
+  Set Suite Variable  ${This_DataProvider}
+  Set Suite Variable  ${SheetName}
+  Log  ${This_DataProvider}
+  ${UserNameList} =  Data_Provider.GetDataProviderColumnValue  Data_Username
+  ${UserName1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${UserNameList}  1
+  Set Suite Variable  ${UserName1}
+  ${UserName2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${UserNameList}  2
+  Set Suite Variable  ${UserName2}
+  ${PasswordList} =  Data_Provider.GetDataProviderColumnValue  Data_Password
+  ${Password1} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PasswordList}  1
+  Set Suite Variable  ${Password1}    
+  ${Password2} =  Data_Provider.DataProviderSplitterForMultipleValues  ${PasswordList}  2
+  Set Suite Variable  ${Password2}
+   # Login To AMP page  ${UserName}  ${Password}
+   
+    
+*** Variables ***
+${SheetName}  LoginValidate
+#${SheetName1}  Devices
+
+${UserName1}
+${Password1}
+${UserName2}
+${Password2}
+
+
+
+

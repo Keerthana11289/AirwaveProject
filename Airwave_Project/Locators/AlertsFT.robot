@@ -1,0 +1,10 @@
+*** Variables ***
+${Loc_AlertsCount}  //*[@class="total_records"]
+${Loc_Add_trigger}  //*[@class="small button" and @value="Add"]
+${Loc_triggertype}  //*[@name="type"]
+${Loc_AddTriggerButton}  //*[@name="per_role_add" and @value="Add"]
+${Loc_TriggerSuccessful}  //*[@class="icofirst icon_confirmed ok"]
+${Loc_Suppress_NOButton}  //*[@name="auto_suppress" and @value="0"]
+${Loc_durationText}  //*[@name="duration_text"]
+${Loc_ValueText}  //*[@name="value_new1"]
+${Loc_ClientCountText}  //*[@name="client_count"]
