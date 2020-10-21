@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectConfiguration>
+    <configVersion>2</configVersion>
+    <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Python27/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="ExcelLibrary" path="C:/Python27/Lib/site-packages/ExcelLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="JSONLibrary" path="C:/Python27/Lib/site-packages/JSONLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary" path="C:/Python27/Lib/site-packages/RequestsLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="WebdriverHelper" path="Airwave_may8/Utilities/Common/WebdriverHelper.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="WebdriverHelper" path="AirwaveAutomation_Dev/Utilities/Common/WebdriverHelper.py" dynamic="false"/>
+    <pythonpath/>
+    <classpath/>
+    <excludedForValidation/>
+    <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
+    <validatedFileMaxSize>1024</validatedFileMaxSize>
+</projectConfiguration>
